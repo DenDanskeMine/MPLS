@@ -131,16 +131,28 @@ mpls ldp autoconfig
 ```
 HEr er der en vigtig kommando: `mpls ldp autoconfig`.<br>
 Dette sætter automatisk LDp op, hvilket er det der bruges til distribution er de her labels i MPLS.
+
+det skal på alle routere, der skal være en del af MPLS netværket.
  
 Når jeg siger AUtomatisk mner jeg bare at vi fortæller routeren at den skal bruge standartindstillingerne. 
 
+
+### Hvad er MPLS
+Det er en måde at sende pakker på.
+Vi bruger MAC på L2, og IP'er på L3.
+Men med MPLS bruger vi noget der hedder labels.<br>
+Man kan vel kalde det en L2.5
+
+Her kan man se hvad headeren indholder:
+![](Header-til-mpls.png)<br>
+Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
+
+# Netværkstegning 
+
+![](/Doko/MPLS.png)
 [Link til R1](/Netværk/Routere/R1.ios) -
 [Link til R2](/Netværk/Routere/R2.ios) -
 [Link til R3](/Netværk/Routere/R3.ios) -
 [Link til R4](/Netværk/Routere/R4.ios)<br>
 [Link til kunde-1-R1](/Netværk/Kunde1/Kunde1.ios) -
 [Link til kunde-1-R2](/Netværk/Kunde1/Kunde1-2.ios)
-
-# Netværkstegning 
-
-![](Cisco%20network%20diagram.png)
