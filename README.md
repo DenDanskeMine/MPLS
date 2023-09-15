@@ -78,14 +78,15 @@ Den vil i stedet blive delt i VRF kunde-1's routing table.
 Så der er ingen andre routere der kan "Se" denne route.
 
 ### OSPF > BGP
-Nu skal vi overføre vores OSPF til BGP, så rouerne kan sende vores VRF kunde-1 route vidre til den næste PE Router.
+Nu skal vi overføre vores OSPF til BGP, så rouerne kan sende vores VRF kunde-1 route vidre til den næste PE Router.<br>
+Så vi skal ind på vores `router bgp 65400` igen, for at opdatere den med følgende info:
 
 ```
 address-family ipv4 vrf kunde-1
 redistribute ospf 2
 ```
 Her laver vi en `Address-family` i BGP. (kunde-1)<br>
-Nu skriver vi `redistribute ospf 2`
+Inde på denne sub-commando tilføjer vi `redistribute ospf 2`
 
 Disse OSPF-ruter overføres nu til BGP i VRF "kunde-1". Bemærk, at denne ruteinformation forbliver skjult for andre BGP-tabeller, fordi den er specifik for VRF'en "kunde-1."
 
@@ -147,6 +148,36 @@ Her kan man se hvad headeren indholder:
 ![](Header-til-mpls.png)<br>
 Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 
+### Show kommandoer:
+
+`show mpls forwarding` her får vi en tabel over hvilke pakker/labels der skal vidresendes på den angivnde router.
+![](LFIB.png)
+
+**Local tag:** Dette er labelen, der er knyttet til pakken på dette niveau. Hver label bruges til at dirigere pakken til det næste hop.
+
+**Outgoing tag or VC:** Dette er den label eller Virtual Circuit (VC), der skal anvendes på den udgående pakke for at dirigere den korrekt på det næste hop. Hvis der står "Pop tag," betyder det, at den udgående pakke ikke længere har brug for en MPLS-label og bliver "unlabeled" (normal IP-pakke).
+
+**Prefix or Tunnel Id:** Dette er den destination, som pakken forsøger at nå. Det kan være en IP-adresse eller en tunnel-ID afhængigt af routingbehovet.
+
+**Bytes switched:** Dette er mængden af data, der er blevet videresendt ved hjælp af denne label.
+
+**Outgoing interface:** Dette er den udgående interface, hvor pakken sendes videre til det næste hop.
+
+**Next Hop:**Dette er IP-adressen på den næste router, som pakken sendes til.
+
+---
+`show mpls interfaces` Denne kommando viser MPLS-konfigurationen for alle interfaces på routeren. Det kan give dig information om, hvilke interfaces der er aktiveret til MPLS, og hvilke der ikke er.
+![](show%20mpls%20interfaces.png)
+
+---
+`show mpls ldp bindings` Denne kommando viser bindingsinformationen for MPLS-labels, der er tildelt og modtaget fra naboer. Dette giver dig et overblik over, hvilke labels der er i brug på routeren.
+![](/Doko/BIndings.png)
+
+---
+`show mpls ldp discovery`  Denne kommando viser opdagelsesoplysninger for MPLS LDP, herunder hvilke interfaces der er indstillet til at lytte efter LDP-naboer.<br>
+![](/Doko/show%20mpls%20ldp%20discovery.png)
+
+Her kan vi set at, R4 har fundet 3.3.3.3, hviket er R3's Lo interface / RID
 # Netværkstegning 
 
 ![](/Doko/MPLS.png)
