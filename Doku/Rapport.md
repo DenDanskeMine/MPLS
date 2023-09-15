@@ -145,13 +145,13 @@ Men med MPLS bruger vi noget der hedder labels.<br>
 Man kan vel kalde det en L2.5
 
 Her kan man se hvad headeren indholder:
-![](Header-til-mpls.png)<br>
+![](/Doku/Header-til-mpls.png)<br>
 Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 
 ### Show kommandoer:
 
 `show mpls forwarding` her får vi en tabel over hvilke pakker/labels der skal vidresendes på den angivnde router.<br>
-![](/Doko/LFIB.png)
+![](/Doku/LFIB.png)
 
 **Local tag:** Dette er labelen, der er knyttet til pakken på dette niveau. Hver label bruges til at dirigere pakken til det næste hop.
 
@@ -167,20 +167,20 @@ Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 
 ---
 `show mpls interfaces` Denne kommando viser MPLS-konfigurationen for alle interfaces på routeren. Det kan give dig information om, hvilke interfaces der er aktiveret til MPLS, og hvilke der ikke er.<br>
-![](/Doko/interface.png)
+![](/Doku/interface.png)
 
 ---
 `show mpls ldp bindings` Denne kommando viser bindingsinformationen for MPLS-labels, der er tildelt og modtaget fra naboer. Dette giver dig et overblik over, hvilke labels der er i brug på routeren.<br>
-![](/Doko/BIndings.png)
+![](/Doku/BIndings.png)
 
 ---
 `show mpls ldp discovery`  Denne kommando viser opdagelsesoplysninger for MPLS LDP, herunder hvilke interfaces der er indstillet til at lytte efter LDP-naboer.<br>
-![](/Doko/discovery.png)
+![](/Doku/discovery.png)
 
 Her kan vi set at, R4 har fundet 3.3.3.3, hviket er R3's Lo interface / RID
 # Netværkstegning 
 
-![](/Doko/MPLS.png)
+![](/Doku/MPLS.png)
 [Link til R1](/Netværk/Routere/R1.ios) -
 [Link til R2](/Netværk/Routere/R2.ios) -
 [Link til R3](/Netværk/Routere/R3.ios) -
