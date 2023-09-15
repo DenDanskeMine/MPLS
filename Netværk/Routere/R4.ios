@@ -1,0 +1,36 @@
+interface fastethernet 0/0
+ip address 10.10.10.10 255.255.255.252
+ip nat inside
+no shutdown
+!
+interface fastethernet 0/1
+ip address 172.16.1.1 255.255.255.0
+ip nat inside
+ip vrf forwarding kunde-1
+ip ospf 2 area 1
+no shutdown
+!
+router ospf 2
+redistribute bgp 65400 subnets
+!
+router ospf 1
+network 10.10.10.0 0.0.0.255 area 0
+network 4.4.4.4 0.0.0.0 area 0
+mpls ldp autoconfig
+!
+router bgp 65400
+neighbor 1.1.1.1 remote-as 65400
+neighbor 1.1.1.1 update-source lo 1
+no auto-summary
+address-family vpnv4 
+neighbor 1.1.1.1 activate
+address-family ipv4 vrf kunde-1
+redistribute ospf 2
+!
+ip vrf kunde-1
+rd 65400:1
+route-target both 65400:1
+!
+interface loopback 1
+ip address 4.4.4.4 255.255.255.255
+

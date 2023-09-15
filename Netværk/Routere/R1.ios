@@ -12,6 +12,7 @@ no shutdown
 !
 router ospf 2
 router-id 1.1.1.2
+redistribute bgp 65400 subnets
 !
 router ospf 1
 network 10.10.10.0 0.0.0.255 area 0
@@ -24,6 +25,8 @@ neighbor 4.4.4.4 update-source lo 1
 no auto-summary
 address-family vpnv4
 neighbor 4.4.4.4 activate
+address-family ipv4 vrf kunde-1
+redistribute ospf 2
 !
 ip vrf kunde-1
 rd 65400:1
