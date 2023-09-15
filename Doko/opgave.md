@@ -6,7 +6,7 @@
 
  
 
-**Formål:**
+**Formål:** 
 Formålet med dette projekt er at give studerende en omfattende forståelse af MPLS (Multiprotocol Label Switching) og dets konfiguration. Ved afslutningen af dette projekt skal studerende kunne forklare, hvad MPLS er, dets fordele og konfigurere et grundlæggende MPLS-netværk.
 
  
