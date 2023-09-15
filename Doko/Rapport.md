@@ -151,7 +151,7 @@ Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 ### Show kommandoer:
 
 `show mpls forwarding` her får vi en tabel over hvilke pakker/labels der skal vidresendes på den angivnde router.<br>
-![](LFIB.png)
+![](/Doko/LFIB.png)
 
 **Local tag:** Dette er labelen, der er knyttet til pakken på dette niveau. Hver label bruges til at dirigere pakken til det næste hop.
 
@@ -167,7 +167,7 @@ Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 
 ---
 `show mpls interfaces` Denne kommando viser MPLS-konfigurationen for alle interfaces på routeren. Det kan give dig information om, hvilke interfaces der er aktiveret til MPLS, og hvilke der ikke er.<br>
-![](interface.png)
+![](/Doko/interface.png)
 
 ---
 `show mpls ldp bindings` Denne kommando viser bindingsinformationen for MPLS-labels, der er tildelt og modtaget fra naboer. Dette giver dig et overblik over, hvilke labels der er i brug på routeren.<br>
