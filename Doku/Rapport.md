@@ -144,7 +144,7 @@ Vi bruger MAC på L2, og IP'er på L3.
 Men med MPLS bruger vi noget der hedder labels.<br>
 Man kan vel kalde det en L2.5
 
-Her kan man se hvad headeren indholder:
+Her kan man se hvad headeren indholder:<br>
 ![](/Doku/Header-til-mpls.png)<br>
 Exp delen er ret nice, her kanman bruge de 3 bits til QoS.
 
